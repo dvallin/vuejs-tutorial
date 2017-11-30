@@ -3,7 +3,7 @@ import TodoListItem from '../../src/components/TodoListItem'
 import {Task} from "../../src/domain/Task";
 import {shallow} from 'vue-test-utils'
 
-const task = new Task("Some Title");
+const task = new Task("id", "Some Title");
 
 describe('TodoList.vue', () => {
   it('renders empty lists', () => {

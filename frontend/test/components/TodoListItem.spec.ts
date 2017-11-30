@@ -8,7 +8,7 @@ describe('TodoListItem.vue', () => {
   it('renders', () => {
     const wrapper = mount(TodoListItem, {
       propsData: {
-        task: new Task("Some Title")
+        task: new Task("id", "Some Title")
       }
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -18,14 +18,14 @@ describe('TodoListItem.vue', () => {
 
   describe('checkbox', () => {
     it('is checked if task is done', () => {
-      const task = new Task("Some Title");
+      const task = new Task("id", "Some Title");
       task.state = TaskState.Done;
       const wrapper = mount(TodoListItem, { propsData: { task } });
       expect(wrapper.find('input').element.checked).toBeTruthy();
     });
 
     it('is not checked if task is not done', () => {
-      const task = new Task("Some Title");
+      const task = new Task("id", "Some Title");
       const wrapper = mount(TodoListItem, {  propsData: { task } });
       expect(wrapper.find('input').element.checked).toBeFalsy();
     });
@@ -37,7 +37,7 @@ describe('TodoListItem.vue', () => {
       const wrapper = mount(TodoListItem, {
         store,
         propsData: {
-          task: new Task(givenTitle)
+          task: new Task("id", givenTitle)
         }
       });
 

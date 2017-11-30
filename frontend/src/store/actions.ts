@@ -1,16 +1,23 @@
 import _ from 'lodash';
 
-import {Task, TaskState} from "../domain/Task";
+import * as TasksApi from "../api/tasks";
+
+import {TaskState} from "../domain/Task";
 import {Mutations} from "./mutations";
 
 export enum Actions {
   AddTask = 'addTask',
-  SetTaskComplete = 'setTaskComplete'
+  FetchTasks = 'fetchTasks',
+  SetTaskComplete = 'setTaskComplete',
 }
 
 export interface AddTask {
   type: Actions.AddTask;
   title: string;
+}
+
+export interface FetchTasks {
+  type: Actions.FetchTasks;
 }
 
 export interface SetTaskComplete {
@@ -20,12 +27,23 @@ export interface SetTaskComplete {
 }
 
 export const actions = {
-  [Actions.AddTask] ({getters, commit}, payload: AddTask) {
-    if(_.isNil(getters.taskByTitle(payload.title))) {
-      commit({
-        type: Mutations.TaskAdded,
-        task: new Task(payload.title)
-      });
+  async [Actions.AddTask] ({getters, commit}, {title}: AddTask): Promise<void> {
+    try {
+      const foundTask = getters.taskByTitle(title);
+      if(_.isNil(foundTask)) {
+        const task = await TasksApi.addTask(title);
+        commit({ type: Mutations.AddTaskSucceeded, task });
+      }
+    } catch(error) {
+      commit({type: Mutations.AddTaskFailed, title });
+    }
+  },
+  async [Actions.FetchTasks] ({commit}, payload: FetchTasks): Promise<void> {
+    try {
+      const tasks = await TasksApi.fetchTasks();
+      commit({type: Mutations.FetchTasksSucceeded, tasks});
+    } catch(error) {
+      commit({ type: Mutations.FetchTasksFailed, error: error.message });
     }
   },
   [Actions.SetTaskComplete] ({getters, commit}, payload: SetTaskComplete) {
