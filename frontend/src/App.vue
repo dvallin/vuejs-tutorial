@@ -14,6 +14,7 @@ import TodoList from './components/TodoList'
 import {Task} from "./domain/Task";
 import {mapState} from "vuex";
 import NewTaskInput from "./components/NewTaskInput.vue";
+import {Actions} from "./store/actions";
 
 export default {
   name: 'app',
@@ -23,6 +24,11 @@ export default {
   },
   computed: {
     ...mapState(['tasks'])
+  },
+  mounted() {
+    this.$store.dispatch({
+      type: Actions.FetchTasks
+    })
   }
 }
 </script>

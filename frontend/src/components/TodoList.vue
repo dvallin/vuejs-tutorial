@@ -8,7 +8,6 @@
 
 <script lang="ts">
   import TodoListItem from './TodoListItem'
-
   export default {
     name: 'TodoList',
     props: ['tasks'],

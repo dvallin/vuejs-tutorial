@@ -8,7 +8,7 @@ import {Task} from "@/domain/Task";
 
 export const initialState = () => {
   return {
-    tasks: [new Task("new task"), new Task("old task")],
+    tasks: [],
     errors: []
   }
 };
