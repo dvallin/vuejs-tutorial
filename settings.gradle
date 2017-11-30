@@ -1,0 +1,3 @@
+rootProject.name = 'vuejs_tutorial'
+
+include 'backend'

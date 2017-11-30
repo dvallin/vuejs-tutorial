@@ -1,0 +1,33 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.M6'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'com.avast.gradle:gradle-docker-compose-plugin:0.5.9'
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+        testCompile 'junit:junit:4.12'
+        testCompile 'org.assertj:assertj-core:3.8.0'
+    }
+}

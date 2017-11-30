@@ -1,0 +1,9 @@
+apply from: '../service.gradle'
+apply from: 'dockerbootrun.gradle'
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+    compile 'org.springframework.boot:spring-boot-starter-webflux'
+}
+
+compileJava.dependsOn(processResources)
