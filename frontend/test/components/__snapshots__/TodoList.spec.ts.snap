@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList.vue renders empty lists 1`] = `<b-list-group />`;
+
+exports[`TodoList.vue renders three element lists 1`] = `
+<b-list-group>
+  <b-list-group-item
+    class="task"
+  >
+    <!---->
+  </b-list-group-item>
+  <b-list-group-item
+    class="task"
+  >
+    <!---->
+  </b-list-group-item>
+  <b-list-group-item
+    class="task"
+  >
+    <!---->
+  </b-list-group-item>
+</b-list-group>
+`;

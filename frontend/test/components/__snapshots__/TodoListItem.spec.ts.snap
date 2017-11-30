@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListItem.vue renders snapshots 1`] = `
+<div
+  class="todo-list-item"
+>
+  <label>
+    Some Title
+  </label>
+</div>
+`;

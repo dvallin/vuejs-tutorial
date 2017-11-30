@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <HelloWorld></HelloWorld>
+    <todo-list :tasks="tasks"></todo-list>
   </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from './components/HelloWorld'
+import TodoList from './components/TodoList'
+import {Task} from "./domain/Task";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TodoList
+  },
+  data() {
+    return {
+      tasks: [new Task("new task"), new Task("old task")]
+    }
   }
 }
 </script>
