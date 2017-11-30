@@ -1,22 +1,28 @@
 <template>
   <div id="app">
-    <todo-list :tasks="tasks"></todo-list>
+    <header>
+      <new-task-input></new-task-input>
+    </header>
+    <section>
+      <todo-list :tasks="tasks"></todo-list>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
 import TodoList from './components/TodoList'
 import {Task} from "./domain/Task";
+import {mapState} from "vuex";
+import NewTaskInput from "./components/NewTaskInput.vue";
 
 export default {
   name: 'app',
   components: {
+    NewTaskInput,
     TodoList
   },
-  data() {
-    return {
-      tasks: [new Task("new task"), new Task("old task")]
-    }
+  computed: {
+    ...mapState(['tasks'])
   }
 }
 </script>

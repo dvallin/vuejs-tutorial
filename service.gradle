@@ -1,0 +1,39 @@
+repositories {
+    maven {
+        url 'https://repo.spring.io/libs-release'
+    }
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'application'
+apply plugin: 'docker'
+apply plugin: 'java'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-websocket')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-configuration-processor')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+    testCompile('io.projectreactor:reactor-test')
+}
+
+
+group = 'de.itemis.vuejstutorial'
+
+task buildDockerForIntegrationTest(type: Docker, dependsOn: build) {
+    version = 'readyfortest'
+
+    baseImage "openjdk:8-jre"
+    maintainer 'Olaf Gunkel <ogunkel@itemis.de>'
+    applicationName = jar.baseName.toLowerCase()
+    addFile {
+        from jar
+        rename { 'app.jar' }
+    }
+    entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
+
+}

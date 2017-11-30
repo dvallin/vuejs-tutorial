@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoListItem.vue renders snapshots 1`] = `
+exports[`TodoListItem.vue renders 1`] = `
 <div
   class="todo-list-item"
 >
+  <input
+    type="checkbox"
+  />
+   
   <label>
     Some Title
   </label>

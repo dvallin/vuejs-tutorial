@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTaskInput.vue renders an input field 1`] = `
+<input
+  autocomplete="off"
+  autofocus="autofocus"
+  class="new-todo"
+  placeholder="What needs to be done?"
+/>
+`;

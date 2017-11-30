@@ -1,0 +1,7 @@
+apply plugin: 'docker-compose'
+
+dockerCompose.isRequiredBy(bootRun)
+
+dockerCompose {
+    useComposeFiles = ['backend-docker-compose.yml']
+}
