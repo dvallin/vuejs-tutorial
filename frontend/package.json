@@ -7,12 +7,16 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "unit": "jest test --coverage",
+    "unit": "jest --coverage",
     "test": "npm run unit",
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "bootstrap": "4.0.0-beta.2",
+    "bootstrap-vue": "^1.2.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.5.2",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@types/jest": "^21.1.6",
@@ -34,6 +38,7 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.0",
+    "jest-cli": "^21.2.1",
     "js-beautify": "^1.7.4",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -46,6 +51,7 @@
     "shelljs": "^0.7.6",
     "ts-jest": "^21.2.3",
     "ts-loader": "^3.1.1",
+    "tslib": "^1.8.0",
     "typescript": "^2.6.1",
     "url-loader": "^0.5.8",
     "vue-jest": "^1.0.2",
@@ -53,6 +59,7 @@
     "vue-server-renderer": "^2.5.6",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
+    "vue-test-utils": "^1.0.0-beta.5",
     "vue-typescript-import-dts": "^3.1.1",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",

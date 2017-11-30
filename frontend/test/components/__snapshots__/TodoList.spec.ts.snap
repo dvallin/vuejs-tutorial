@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList.vue renders empty lists 1`] = `
+<ul
+  class="todo-list"
+/>
+`;
+
+exports[`TodoList.vue renders three element lists 1`] = `
+<ul
+  class="todo-list"
+>
+  <li
+    class="task"
+  >
+    <!---->
+  </li>
+  <li
+    class="task"
+  >
+    <!---->
+  </li>
+  <li
+    class="task"
+  >
+    <!---->
+  </li>
+</ul>
+`;
